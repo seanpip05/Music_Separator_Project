@@ -1,0 +1,11 @@
+torch
+torchvision
+torchaudio
+torch-directml
+librosa
+numpy
+matplotlib
+soundfile
+streamlit
+pandas
+scikit-learn

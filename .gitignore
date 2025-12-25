@@ -1,0 +1,20 @@
+# התעלמות מהדאטהסט הכבד
+data/raw/
+data/processed/
+data/synthetic/
+
+# התעלמות מקבצי אודיו מקומיים בתיקיית הבדיקה
+AUDIO/
+AUDIO_CHUNKS/
+*.mp3
+*.wav
+
+# התעלמות ממשקולות של מודלים (הם כבדים מדי לגיט רגיל)
+models/*.pth
+
+# התעלמות מסביבה וירטואלית וקבצי מערכת
+venv/
+.venv/
+__pycache__/
+.DS_Store
+.ipynb_checkpoints/
