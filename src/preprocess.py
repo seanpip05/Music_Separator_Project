@@ -45,9 +45,16 @@ def slice_audio_files(raw_data_path, output_base_path, segment_len=5, sr=22050):
                     sf.write(out_path, audio_data[t][start:end], sr)
 
 if __name__ == "__main__":
-    # שנה את הנתיבים האלו לנתיבים האמיתיים אצלך במחשב
-    RAW_PATH = 'data/raw/musdb18hq' # איפה שהורדת את ה-21GB
+    # נתיב המקור שבו נמצאות תיקיות train ו-test
+    BASE_RAW_PATH = 'data/raw' 
+    
+    # נעבד רק את תיקיית ה-train לצורך אימון המודל
+    # (את ה-test נשמור כקבצים שלמים להצגה ב-Streamlit אחר כך)
+    TRAIN_RAW_PATH = os.path.join(BASE_RAW_PATH, 'train')
     PROCESSED_PATH = 'data/processed'
     
-    slice_audio_files(RAW_PATH, PROCESSED_PATH)
-    print("Done Preprocessing!")
+    if os.path.exists(TRAIN_RAW_PATH):
+        slice_audio_files(TRAIN_RAW_PATH, PROCESSED_PATH)
+        print("✅ Done Preprocessing Train Set!")
+    else:
+        print(f"❌ Error: Could not find train folder at {TRAIN_RAW_PATH}")
